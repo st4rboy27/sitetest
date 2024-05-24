@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro e Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #dcd6f7; /* Cor de fundo do corpo da página (roxo claro) */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: #ffffff; /* Cor de fundo do container (branco) */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #6c5ce7; /* Cor do título (roxo escuro) */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #6c5ce7; /* Cor de fundo do botão (roxo escuro) */
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #4b3f9f; /* Cor de fundo do botão quando o mouse passa por cima */
+    }
+
+    .error-message {
+        color: #dc3545;
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    .success-message {
+        color: #28a745;
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cadastro e Login</h2>
+    <form id="loginForm">
+        <div class="error-message" id="error-message">Usuário ou senha incorretos!</div>
+        <div class="success-message" id="success-message">Login bem-sucedido!</div>
+        <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
+        <input type="password" id="password" name="password" placeholder="Senha" required>
+        <input type="submit" value="Entrar" onclick="validateForm()">
+    </form>
+    <div class="link">
+        Ainda não tem uma conta? <a href="#">Cadastre-se</a>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message");
+        var successMessage = document.getElementById("success-message");
+
+        // Lógica de validação
+        if (username === "usuario" && password === "senha") {
+            // Login bem-sucedido
+            errorMessage.style.display = "none";
+            successMessage.style.display = "block";
+        } else {
+            // Login falhou
+            errorMessage.style.display = "block";
+            successMessage.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
